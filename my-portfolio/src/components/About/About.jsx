@@ -1,4 +1,5 @@
 import './About.css';
+import profileImage from '../../assets/profile.jpg'; // Import the same image
 
 const About = () => {
   return (
@@ -6,7 +7,7 @@ const About = () => {
       <h2 className="heading">About <span>Me</span><span className="animate scroll" style={{"--i":1}}></span></h2>
 
       <div className="about-img">
-        <img src="/Designer.png" alt="Semal Fernando" />
+        <img src={profileImage} alt="Semal Fernando" />
         <span className="circle-spin"></span>
         <span className="animate scroll" style={{"--i":2}}></span>
       </div>

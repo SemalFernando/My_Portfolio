@@ -1,5 +1,5 @@
 import './Home.css';
-import profileImage from '../../assets/profile.jpg'; // Import the image
+import profileImage from '../../assets/profile.jpg';
 
 const Home = () => {
   return (
@@ -16,9 +16,20 @@ const Home = () => {
           </p>
           
           <div className="btn-box">
-            <a href="#" className="btn">Hire Me <i className='bx bx-right-arrow-alt'></i></a>
-            <a href="#" className="btn">Let's Talk <i className='bx bxs-calendar-check'></i></a>
+            <a href="https://drive.google.com/file/d/1oMTrNMyHzomDQNvzvgbj3MVmRn9hbaIB/view?usp=drivesdk" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               className="btn">
+              View My CV <i className='bx bxs-file-doc'></i>
+            </a>
             <span className="animate" style={{"--i":5}}></span>
+          </div>
+
+          <div className="home-sci">
+            <a href="https://www.instagram.com/semal_fdo/" target="_blank" rel="noopener noreferrer"><i className='bx bxl-instagram-alt'></i></a>
+            <a href="https://www.linkedin.com/in/semalfernando/" target="_blank" rel="noopener noreferrer"><i className='bx bxl-linkedin'></i></a>
+            <a href="https://github.com/SemalFernando" target="_blank" rel="noopener noreferrer"><i className='bx bxl-github'></i></a>
+            <span className="animate" style={{"--i":6}}></span>
           </div>
         </div>
 
@@ -29,14 +40,6 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </div>
-
-      <div className="home-sci">
-        <a href="#"><i className='bx bxl-instagram-alt'></i></a>
-        <a href="#"><i className='bx bxl-linkedin'></i></a>
-        <a href="#"><i className='bx bxl-twitter'></i></a>
-        <a href="#"><i className='bx bxl-facebook'></i></a>
-        <span className="animate" style={{"--i":6}}></span>
       </div>
     </section>
   );
