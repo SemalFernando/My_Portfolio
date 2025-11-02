@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.app {
+  font-family: 'Inter', 'Segoe UI', -apple-system, sans-serif;
+  line-height: 1.6;
+  color: #000; /* Changed to black */
+  background: #fff; /* Added white background */
+  min-height: 100vh;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom selection color */
+::selection {
+  background: rgba(237, 51, 5, 0.2);
+}
