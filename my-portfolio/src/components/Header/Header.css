@@ -4,41 +4,74 @@
   left: 0;
   width: 100%;
   padding: 2rem 9%;
-  background: transparent;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 100;
-  transition: .3s;
-}
-
-.header.sticky {
-  background: var(--bg-color);
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
 }
 
 .logo {
   position: relative;
-  font-size: 3rem;
+  font-size: 3.4rem;
   color: var(--text-color);
-  font-weight: 600;
+  font-weight: 700;
+  font-family: 'Dancing Script', cursive;
+  letter-spacing: 1px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.logo:hover {
+  color: var(--main-color);
+  transform: translateY(-2px);
 }
 
 .navbar {
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .navbar a {
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: var(--text-color);
   font-weight: 500;
   margin-left: 3.5rem;
-  transition: .3s;
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  text-decoration: none;
+  padding: 0.5rem 0;
+}
+
+.navbar a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: var(--main-color);
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+.navbar a:hover::before,
+.navbar a.active::before {
+  width: 100%;
 }
 
 .navbar a:hover,
 .navbar a.active {
   color: var(--main-color);
+  transform: translateY(-2px);
+}
+
+/* Remove the old underline effect */
+.navbar a::after {
+  display: none;
 }
 
 #menu-icon {
@@ -47,12 +80,22 @@
   color: var(--text-color);
   cursor: pointer;
   display: none;
+  transition: .3s;
+}
+
+#menu-icon:hover {
+  color: var(--main-color);
+  transform: scale(1.1);
 }
 
 /* Mobile Styles */
 @media (max-width: 768px) {
   .header {
-    background: var(--bg-color);
+    padding: 1.5rem 5%;
+  }
+
+  .logo {
+    font-size: 2.8rem;
   }
 
   #menu-icon {
@@ -64,11 +107,12 @@
     top: 100%;
     left: -100%;
     width: 100%;
-    padding: 1rem 4%;
+    padding: 2rem 4%;
     background: var(--main-color);
-    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
     z-index: 1;
-    transition: .25s ease;
+    transition: .4s ease;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .navbar.active {
@@ -77,13 +121,46 @@
 
   .navbar a {
     display: block;
-    font-size: 2rem;
-    margin: 3rem 0;
+    font-size: 2.2rem;
+    margin: 1.5rem 0;
     color: white;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 0;
+    padding: 0.8rem 1rem;
+    width: 100%;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+
+  .navbar a::before {
+    display: none;
   }
 
   .navbar a:hover,
   .navbar a.active {
     color: var(--bg-color);
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(10px);
+    padding-left: 2rem;
+  }
+
+  .navbar a.active {
+    background: rgba(255, 255, 255, 0.2);
+    border-left: 4px solid var(--bg-color);
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 2.4rem;
+  }
+
+  .header {
+    padding: 1.2rem 5%;
+  }
+  
+  .navbar a {
+    font-size: 2rem;
+    margin: 1.2rem 0;
   }
 }
