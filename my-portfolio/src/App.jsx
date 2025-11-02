@@ -1,18 +1,24 @@
-import './App.css'
-import Hero from './components/Hero/Hero'
-import Projects from './components/Projects/Projects'
-import About from './components/About/About'
-import Footer from './components/Footer/Footer'
+import './App.css';
+import Header from './components/Header/Header';
+import Home from './components/Home/Home';
+import About from './components/About/About';
+import Education from './components/Education/Education';
+import Skills from './components/Skills/Skills';
+import Contact from './components/Contact/Contact';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
-    <div className="app">
-      <Hero />
-      <Projects />
+    <div className="App">
+      <Header />
+      <Home />
       <About />
+      <Education />
+      <Skills />
+      <Contact />
       <Footer />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
