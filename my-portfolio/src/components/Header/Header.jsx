@@ -67,11 +67,11 @@ const Header = () => {
           About
         </a>
         <a 
-          href="#education" 
-          className={activeNav === '#education' ? 'active' : ''}
-          onClick={() => handleNavClick('#education')}
+          href="#projects" 
+          className={activeNav === '#projects' ? 'active' : ''}
+          onClick={() => handleNavClick('#projects')}
         >
-          Education
+          Projects
         </a>
         <a 
           href="#skills" 
