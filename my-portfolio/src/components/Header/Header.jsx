@@ -43,7 +43,7 @@ const Header = () => {
   return (
     <header className="header" style={{ background: headerBackground }}>
       <a href="#home" className="logo" onClick={() => handleNavClick('#home')}>
-        SEMAL FERNANDO
+        W.S.A.T. SEMAL FERNANDO
         <span className="animate" style={{"--i":1}}></span>
       </a>
 
