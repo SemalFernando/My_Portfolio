@@ -1,59 +1,54 @@
 import './Projects.css';
+import projectImage from '../../assets/project1.png';
 
 const Projects = () => {
   const projects = [
     {
       id: 1,
       title: "E-Commerce Platform",
-      image: "/project1.jpg",
-      problem: "Businesses needed a scalable online store solution",
-      solution: "Built full-stack e-commerce with React, Node.js, and MongoDB",
-      technologies: ["React", "Node.js", "MongoDB", "Stripe API"]
+      problem: "Businesses needed a scalable online store solution with secure payments and inventory management",
+      solution: "Built full-stack e-commerce platform with React, Node.js, MongoDB and integrated payment processing",
+      githubUrl: "https://github.com/SemalFernando/ecommerce-platform"
     },
     {
       id: 2,
       title: "Task Management App",
-      image: "/project2.jpg",
-      problem: "Teams struggled with project coordination and task tracking",
-      solution: "Created collaborative task manager with real-time updates",
-      technologies: ["React", "Firebase", "Material-UI", "WebSockets"]
+      problem: "Teams struggled with project coordination, task delegation and progress tracking",
+      solution: "Created collaborative task manager with real-time updates, team collaboration and deadline tracking",
+      githubUrl: "https://github.com/SemalFernando/task-manager"
     },
     {
       id: 3,
       title: "Weather Dashboard",
-      image: "/project3.jpg",
-      problem: "Users needed quick access to weather data with good UX",
-      solution: "Developed responsive weather app with multiple API integrations",
-      technologies: ["JavaScript", "API Integration", "CSS3", "Chart.js"]
+      problem: "Users needed quick access to comprehensive weather data with intuitive user experience",
+      solution: "Developed responsive weather application with multiple API integrations and data visualization",
+      githubUrl: "https://github.com/SemalFernando/weather-dashboard"
     },
     {
       id: 4,
       title: "Social Media Analytics",
-      image: "/project4.jpg",
-      problem: "Businesses lacked insights into social media performance",
-      solution: "Built analytics dashboard with data visualization and reports",
-      technologies: ["React", "D3.js", "Python", "PostgreSQL"]
+      problem: "Businesses lacked actionable insights into social media performance and engagement metrics",
+      solution: "Built comprehensive analytics dashboard with real-time data visualization and performance reports",
+      githubUrl: "https://github.com/SemalFernando/social-analytics"
     },
     {
       id: 5,
       title: "Mobile Fitness App",
-      image: "/project5.jpg",
-      problem: "Fitness enthusiasts needed personalized workout tracking",
-      solution: "Created cross-platform fitness app with progress tracking",
-      technologies: ["React Native", "Firebase", "Redux", "Chart.js"]
+      problem: "Fitness enthusiasts needed personalized workout tracking and progress monitoring",
+      solution: "Created cross-platform fitness application with workout plans, progress tracking and achievement system",
+      githubUrl: "https://github.com/SemalFernando/fitness-app"
     },
     {
       id: 6,
       title: "Portfolio Website",
-      image: "/project6.jpg",
-      problem: "Professionals needed modern, responsive portfolio sites",
-      solution: "Designed and developed custom portfolio with modern UI/UX",
-      technologies: ["React", "CSS3", "Framer Motion", "Responsive Design"]
+      problem: "Professionals needed modern, responsive portfolio sites to showcase their work effectively",
+      solution: "Designed and developed custom portfolio website with modern UI/UX and optimal performance",
+      githubUrl: "https://github.com/SemalFernando/portfolio"
     }
   ];
 
   return (
-    <section className="projects-section" id="projects">
+    <section className="projects" id="projects">
       <h2 className="projects-heading">My <span>Projects</span></h2>
 
       <div className="projects-container">
@@ -61,34 +56,32 @@ const Projects = () => {
           {projects.map((project) => (
             <div key={project.id} className="project-card">
               <div className="project-image">
-                <img src={project.image} alt={project.title} />
+                <img src={projectImage} alt={project.title} />
                 <div className="project-overlay">
-                  <div className="project-tech">
-                    {project.technologies.map((tech, index) => (
-                      <span key={index} className="tech-tag">{tech}</span>
-                    ))}
-                  </div>
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="github-link"
+                  >
+                    <i className='bx bxl-github'></i>
+                  </a>
                 </div>
               </div>
-              
+
               <div className="project-content">
                 <h3 className="project-title">{project.title}</h3>
-                
+
                 <div className="project-details">
                   <div className="detail-section">
                     <h4>Problem</h4>
                     <p>{project.problem}</p>
                   </div>
-                  
+
                   <div className="detail-section">
                     <h4>Solution</h4>
                     <p>{project.solution}</p>
                   </div>
-                </div>
-                
-                <div className="project-actions">
-                  <button className="project-btn btn-primary">Live Demo</button>
-                  <button className="project-btn btn-secondary">Source Code</button>
                 </div>
               </div>
             </div>
