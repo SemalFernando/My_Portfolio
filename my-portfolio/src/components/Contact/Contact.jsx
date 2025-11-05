@@ -3,20 +3,24 @@ import './Contact.css';
 const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert('Message sent successfully!');
+
+    // Create a FormData object and send it to Netlify manually
+    const formData = new FormData(e.target);
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString(),
+    })
+      .then(() => {
+        alert("Message sent successfully!");
+        e.target.reset();
+      })
+      .catch((error) => alert("Something went wrong: " + error));
   };
 
   return (
     <section className="contact" id="contact">
-      {/* Hidden dummy form for Netlify detection */}
-      <form name="contact" netlify netlify-honeypot="bot-field" hidden>
-        <input type="text" name="firstName" />
-        <input type="text" name="lastName" />
-        <input type="email" name="email" />
-        <input type="tel" name="mobile" />
-        <textarea name="message"></textarea>
-      </form>
-
       <h2 className="heading">
         Get In <span>Touch</span>
       </h2>
@@ -56,7 +60,7 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* Main contact form */}
+        {/* Contact Form */}
         <form
           className="contact-form"
           name="contact"
@@ -65,7 +69,7 @@ const Contact = () => {
           data-netlify-honeypot="bot-field"
           onSubmit={handleSubmit}
         >
-          {/* Required hidden field for Netlify */}
+          {/* Hidden field for Netlify form detection */}
           <input type="hidden" name="form-name" value="contact" />
           <p hidden>
             <label>
@@ -101,8 +105,7 @@ const Contact = () => {
           </div>
 
           <button type="submit" className="submit-btn">
-            Send Message
-            <i className="bx bx-paper-plane"></i>
+            Send Message <i className="bx bx-paper-plane"></i>
           </button>
         </form>
       </div>
