@@ -15,6 +15,16 @@
 <body>
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
+
+  <!-- Hidden form for Netlify detection -->
+  <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="text" name="firstName" />
+    <input type="text" name="lastName" />
+    <input type="email" name="email" />
+    <input type="tel" name="mobile" />
+    <textarea name="message"></textarea>
+  </form>
+
 </body>
 
 </html>
