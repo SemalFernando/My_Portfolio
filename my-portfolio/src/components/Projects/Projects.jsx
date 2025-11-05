@@ -88,6 +88,17 @@ const Projects = () => {
           ))}
         </div>
       </div>
+
+      <div className="projects-btn-box">
+        <a 
+          href="https://github.com/SemalFernando?tab=repositories" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="btn"
+        >
+          View Other Projects
+        </a>
+      </div>
     </section>
   );
 };
