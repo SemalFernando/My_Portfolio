@@ -14,10 +14,17 @@ const About = () => {
 
         <div className="about-text">
           <h3>Full-Stack Developer...</h3>
-          <p>Full-stack software engineer skilled in developing end-to-end solutions across web, mobile, and desktop platforms. Passionate about building impactful systems that blend clean design, efficient architecture, and seamless user experiences.</p>
+          <p>As a 3rd-year Software Engineering student at Coventry University, UK, I am passionate about creating innovative and efficient software solutions. Throughout my academic journey, I have developed strong expertise in programming and software design, with hands-on experience in technologies such as Java, PHP, Python, Go (Golang), Laravel, Vue, React, React Native, and MongoDB.</p>
 
           <div className="btn-box btns">
-            <a href="#" className="btn">Read More</a>
+            <a 
+              href="https://www.linkedin.com/in/semalfernando/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="btn"
+            >
+              Read More
+            </a>
           </div>
         </div>
       </div>
