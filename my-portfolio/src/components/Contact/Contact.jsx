@@ -84,7 +84,7 @@ const Contact = () => {
             <input type="hidden" name="form-name" value="contact" />
             <p hidden>
               <label>
-                Don’t fill this out if you’re human: <input name="bot-field" />
+                Don't fill this out if you're human: <input name="bot-field" />
               </label>
             </p>
 
@@ -115,15 +115,17 @@ const Contact = () => {
               <div className="underline textarea-underline"></div>
             </div>
 
-            <button type="submit" className="submit-btn">
-              Send Message
-              <i className="bx bx-paper-plane"></i>
-            </button>
+            <div className="btn-box">
+              <button type="submit" className="btn">
+                Send Message
+                <i className="bx bx-paper-plane"></i>
+              </button>
+            </div>
           </form>
         ) : (
           <div className="thank-you-message">
-            <h3>🎉 Thank you!</h3>
-            <p>Your message has been sent successfully. I’ll get back to you soon.</p>
+            <h2>🎉 Thank you!</h2>
+            <p>Your message has been received successfully. I'll get back to you soon.</p>
           </div>
         )}
       </div>
