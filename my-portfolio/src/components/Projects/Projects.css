@@ -21,7 +21,8 @@
 
 .projects-container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px;
+  /* Increased from 1200px to 1400px */
   display: flex;
   justify-content: center;
   margin-bottom: 4rem;
@@ -29,7 +30,8 @@
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  /* Increased to 400px */
   gap: 3rem;
   width: 100%;
 }
@@ -41,6 +43,10 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   border: 1px solid rgba(237, 51, 5, 0.1);
+  max-width: 450px;
+  /* Added max-width to control card size */
+  margin: 0 auto;
+  /* Center cards */
 }
 
 .project-card:hover {
@@ -202,10 +208,10 @@
   .projects {
     padding: 10rem 4% 2rem;
   }
-  
+
   .projects-grid {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    /* Adjusted for tablet */
   }
 }
 
@@ -214,29 +220,34 @@
     font-size: 4rem;
     margin-bottom: 4rem;
   }
-  
+
   .projects-grid {
     grid-template-columns: 1fr;
     max-width: 500px;
   }
-  
+
+  .project-card {
+    max-width: 100%;
+    /* Full width on mobile */
+  }
+
   .project-content {
     padding: 2rem;
   }
-  
+
   .project-title {
     font-size: 2rem;
   }
-  
+
   .github-link {
     width: 60px;
     height: 60px;
   }
-  
+
   .github-link i {
     font-size: 3rem;
   }
-  
+
   .projects-btn-box .btn {
     width: 18rem;
     height: 4.5rem;
@@ -248,24 +259,24 @@
   .projects {
     padding: 8rem 4% 2rem;
   }
-  
+
   .projects-heading {
     font-size: 3.5rem;
     margin-bottom: 3rem;
   }
-  
+
   .project-image {
     height: 200px;
   }
-  
+
   .detail-section h4 {
     font-size: 1.3rem;
   }
-  
+
   .detail-section p {
     font-size: 1.3rem;
   }
-  
+
   .projects-btn-box .btn {
     width: 16rem;
     height: 4.5rem;
