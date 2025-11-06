@@ -3,36 +3,44 @@ import './Contact.css';
 
 const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const encode = (data) => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+      .join('&');
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
 
-    // Create form data
     const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData);
 
-    // Send data to Netlify
+    // Use Netlify's form endpoint
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(formData).toString(),
+      body: encode({
+        'form-name': 'contact',
+        ...data
+      }),
     })
-      .then(() => {
-        setIsSubmitted(true);
-        e.target.reset();
-      })
-      .catch((error) => alert(error));
+    .then(() => {
+      setIsSubmitted(true);
+      setIsSubmitting(false);
+      e.target.reset();
+    })
+    .catch((error) => {
+      console.error('Form submission error:', error);
+      alert('There was an error sending your message. Please try again.');
+      setIsSubmitting(false);
+    });
   };
 
   return (
     <section className="contact" id="contact">
-      <form name="contact" netlify netlify-honeypot="bot-field" hidden>
-        <input type="text" name="firstName" />
-        <input type="text" name="lastName" />
-        <input type="email" name="email" />
-        <input type="tel" name="mobile" />
-        <textarea name="message"></textarea>
-      </form>
-
       <h2 className="heading">
         Get In <span>Touch</span>
       </h2>
@@ -116,8 +124,12 @@ const Contact = () => {
             </div>
 
             <div className="btn-box">
-              <button type="submit" className="btn">
-                Send Message
+              <button 
+                type="submit" 
+                className="btn"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? 'Sending...' : 'Send Message'}
                 <i className="bx bx-paper-plane"></i>
               </button>
             </div>
