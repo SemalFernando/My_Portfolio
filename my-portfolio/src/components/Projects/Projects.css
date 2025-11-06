@@ -21,8 +21,7 @@
 
 .projects-container {
   width: 100%;
-  max-width: 1400px;
-  /* Increased from 1200px to 1400px */
+  max-width: 1600px; /* Increased to accommodate 3 larger cards */
   display: flex;
   justify-content: center;
   margin-bottom: 4rem;
@@ -30,8 +29,7 @@
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  /* Increased to 400px */
+  grid-template-columns: repeat(3, 1fr); /* Fixed 3 columns */
   gap: 3rem;
   width: 100%;
 }
@@ -43,10 +41,7 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   border: 1px solid rgba(237, 51, 5, 0.1);
-  max-width: 450px;
-  /* Added max-width to control card size */
-  margin: 0 auto;
-  /* Center cards */
+  width: 100%; /* Full width of grid cell */
 }
 
 .project-card:hover {
@@ -204,14 +199,24 @@
 }
 
 /* Responsive Design */
+@media (max-width: 1200px) {
+  .projects-container {
+    max-width: 1400px;
+  }
+  
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller desktops */
+  }
+}
+
 @media (max-width: 991px) {
   .projects {
     padding: 10rem 4% 2rem;
   }
 
   .projects-grid {
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    /* Adjusted for tablet */
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablet */
+    gap: 2.5rem;
   }
 }
 
@@ -222,13 +227,8 @@
   }
 
   .projects-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* 1 column on mobile */
     max-width: 500px;
-  }
-
-  .project-card {
-    max-width: 100%;
-    /* Full width on mobile */
   }
 
   .project-content {
