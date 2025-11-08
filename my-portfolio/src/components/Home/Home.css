@@ -50,7 +50,6 @@
     background-repeat: no-repeat;
     -webkit-background-clip: text;
     background-clip: text;
-    /* Added standard property */
     background-position: -33rem 0;
     animation: homeBgText 4s linear infinite;
     animation-delay: 2s;
@@ -210,6 +209,11 @@
     object-fit: cover;
 }
 
+/* Mobile-only profile image - hidden by default */
+.mobile-profile {
+    display: none;
+}
+
 @keyframes morph {
     0% {
         border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
@@ -264,8 +268,42 @@
     }
 }
 
+/* Tablet Styles */
+@media (max-width: 1024px) {
+    .home {
+        padding: 0 5%;
+    }
+    
+    .home-content {
+        gap: 4rem;
+    }
+    
+    .text-content h1 {
+        font-size: 5rem;
+    }
+    
+    .text-animate h3 {
+        font-size: 2.8rem;
+    }
+    
+    .color-shape {
+        width: 360px;
+        height: 360px;
+    }
+    
+    .profile-frame {
+        width: 280px;
+        height: 280px;
+    }
+}
+
 /* Mobile Styles */
 @media (max-width: 768px) {
+    .home {
+        padding: 8rem 5% 4rem;
+        min-height: auto;
+    }
+    
     .home-content {
         grid-template-columns: 1fr;
         gap: 3rem;
@@ -273,66 +311,202 @@
     }
 
     .text-content h1 {
-        font-size: 4.5rem;
+        font-size: 4.2rem;
+        margin-bottom: 1.5rem;
+        display: block;
     }
 
     .text-animate {
         width: 100%;
+        margin: 0 auto;
     }
 
     .text-animate h3 {
-        font-size: 2.8rem;
+        font-size: 2.6rem;
+        -webkit-text-stroke: .6px var(--main-color);
+        background-position: 0 0;
     }
 
-    .color-shape {
-        width: 320px;
-        height: 320px;
+    /* Fix cursor animation for mobile */
+    .text-animate {
+        width: auto;
+        display: inline-block;
+        position: relative;
     }
 
-    .profile-frame {
-        width: 250px;
-        height: 250px;
+    .text-content p {
+        font-size: 1.5rem;
+        margin: 2rem 0 2rem;
+        line-height: 1.7;
     }
 
+    /* Hide desktop profile image on mobile */
+    .visual-content {
+        display: none;
+    }
+
+    /* Show mobile profile image */
+    .mobile-profile {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 2rem 0 3rem;
+        order: 4;
+    }
+
+    .mobile-profile .color-shape {
+        width: 260px;
+        height: 260px;
+        margin: 0 auto;
+    }
+
+    .mobile-profile .profile-frame {
+        width: 200px;
+        height: 200px;
+    }
+
+    /* Fix button centering for mobile */
     .btn-box {
         justify-content: center;
         height: auto;
-        margin-bottom: 2rem;
+        margin-bottom: 2.5rem;
+        order: 5;
+        width: 100%;
+        display: flex;
+    }
+
+    .btn-box .btn {
+        width: 17rem;
+        height: 4.5rem;
+        font-size: 1.7rem;
+        margin: 0 auto;
     }
 
     .home-sci {
         justify-content: center;
-        gap: 1.5rem;
+        gap: 1.8rem;
+        order: 6;
+    }
+
+    .home-sci a {
+        width: 48px;
+        height: 48px;
+        font-size: 23px;
+    }
+
+    /* Cursor timing - keeping current moving timing, original returning timing */
+    @keyframes homeCursorText {
+        0%, 10%, 100% {
+            width: 0;
+        }
+        65%, 78%, 85% {
+            width: 110%;
+            opacity: 1;
+        }
+        75%, 81% {
+            opacity: 0;
+        }
+    }
+
+    /* Text reveal - keeping current moving timing, original returning timing */
+    @keyframes homeBgText {
+        0%, 10%, 100% {
+            background-size: 0 100%;
+        }
+        60%, 80%, 85% {
+            background-size: 100% 100%;
+        }
     }
 }
 
+/* Small Mobile Styles */
 @media (max-width: 480px) {
+    .home {
+        padding: 8rem 4% 3rem;
+    }
+    
     .text-content h1 {
-        font-size: 4rem;
+        font-size: 3.6rem;
     }
 
     .text-animate h3 {
         font-size: 2.2rem;
+        -webkit-text-stroke: .5px var(--main-color);
+        background-position: 0 0;
     }
 
-    .color-shape {
-        width: 280px;
-        height: 280px;
+    .text-content p {
+        font-size: 1.4rem;
+        margin: 1.8rem 0 2rem;
     }
 
-    .profile-frame {
+    .mobile-profile .color-shape {
         width: 220px;
         height: 220px;
     }
 
-    .home-sci a {
-        width: 45px;
-        height: 45px;
-        font-size: 22px;
+    .mobile-profile .profile-frame {
+        width: 170px;
+        height: 170px;
+        border-width: 3px;
     }
 
     .btn-box .btn {
         width: 16rem;
+        height: 4.2rem;
         font-size: 1.6rem;
+    }
+
+    .home-sci {
+        gap: 1.5rem;
+    }
+
+    .home-sci a {
+        width: 44px;
+        height: 44px;
+        font-size: 20px;
+    }
+}
+
+/* Extra Small Devices */
+@media (max-width: 360px) {
+    .home {
+        padding: 8rem 3% 2rem;
+    }
+    
+    .text-content h1 {
+        font-size: 3.2rem;
+    }
+
+    .text-animate h3 {
+        font-size: 2rem;
+        background-position: 0 0;
+    }
+
+    .text-content p {
+        font-size: 1.3rem;
+        margin: 1.5rem 0 1.8rem;
+    }
+
+    .mobile-profile .color-shape {
+        width: 200px;
+        height: 200px;
+    }
+
+    .mobile-profile .profile-frame {
+        width: 150px;
+        height: 150px;
+    }
+
+    .btn-box .btn {
+        width: 15rem;
+        height: 4rem;
+        font-size: 1.5rem;
+    }
+
+    .home-sci a {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
     }
 }

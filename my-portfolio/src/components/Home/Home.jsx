@@ -15,6 +15,15 @@ const Home = () => {
             <span className="animate" style={{"--i":4}}></span>
           </p>
           
+          {/* Mobile-only profile image */}
+          <div className="mobile-profile">
+            <div className="color-shape">
+              <div className="profile-frame">
+                <img src={profileImage} alt="Semal Fernando" />
+              </div>
+            </div>
+          </div>
+          
           <div className="btn-box">
             <a href="https://drive.google.com/file/d/1oMTrNMyHzomDQNvzvgbj3MVmRn9hbaIB/view?usp=drivesdk" 
                target="_blank" 

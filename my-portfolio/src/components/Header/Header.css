@@ -21,6 +21,7 @@
   text-decoration: none;
   text-transform: uppercase;
   transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
 .logo:hover {
@@ -44,6 +45,7 @@
   position: relative;
   text-decoration: none;
   padding: 0.5rem 0;
+  white-space: nowrap;
 }
 
 .navbar a::before {
@@ -69,11 +71,6 @@
   transform: translateY(-2px);
 }
 
-/* Remove the old underline effect */
-.navbar a::after {
-  display: none;
-}
-
 #menu-icon {
   position: relative;
   font-size: 3.6rem;
@@ -88,6 +85,22 @@
   transform: scale(1.1);
 }
 
+/* Tablet Styles */
+@media (max-width: 1024px) {
+  .header {
+    padding: 2rem 5%;
+  }
+  
+  .logo {
+    font-size: 2.8rem;
+  }
+  
+  .navbar a {
+    font-size: 1.6rem;
+    margin-left: 2.5rem;
+  }
+}
+
 /* Mobile Styles */
 @media (max-width: 768px) {
   .header {
@@ -95,7 +108,7 @@
   }
 
   .logo {
-    font-size: 2.8rem;
+    font-size: 2.4rem;
   }
 
   #menu-icon {
@@ -103,16 +116,18 @@
   }
 
   .navbar {
-    position: absolute;
-    top: 100%;
+    position: fixed;
+    top: 0;
     left: -100%;
-    width: 100%;
-    padding: 2rem 4%;
+    width: 80%;
+    height: 100vh;
+    padding: 8rem 4% 2rem;
     background: var(--main-color);
-    z-index: 1;
+    z-index: 99;
     transition: .4s ease;
     flex-direction: column;
     align-items: flex-start;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
   }
 
   .navbar.active {
@@ -121,7 +136,7 @@
 
   .navbar a {
     display: block;
-    font-size: 2.2rem;
+    font-size: 2rem;
     margin: 1.5rem 0;
     color: white;
     font-family: 'Poppins', sans-serif;
@@ -150,17 +165,44 @@
   }
 }
 
+/* Small Mobile Styles */
 @media (max-width: 480px) {
-  .logo {
-    font-size: 2.4rem;
+  .header {
+    padding: 1.2rem 4%;
   }
 
-  .header {
-    padding: 1.2rem 5%;
+  .logo {
+    font-size: 2rem;
+  }
+
+  .navbar {
+    width: 85%;
+    padding: 7rem 5% 2rem;
   }
   
   .navbar a {
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin: 1.2rem 0;
+    padding: 0.6rem 0.8rem;
+  }
+
+  #menu-icon {
+    font-size: 3rem;
+  }
+}
+
+/* Extra Small Devices */
+@media (max-width: 360px) {
+  .header {
+    padding: 1rem 3%;
+  }
+
+  .logo {
+    font-size: 1.8rem;
+  }
+
+  .navbar a {
+    font-size: 1.6rem;
+    margin: 1rem 0;
   }
 }
